@@ -19,6 +19,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         yield
 
     app = FastAPI(title="Prelegal API", lifespan=lifespan)
+    app.state.settings = settings
 
     app.add_middleware(
         CORSMiddleware,
@@ -35,6 +36,3 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         app.mount("/", StaticFiles(directory=settings.static_dir, html=True), name="static")
 
     return app
-
-
-app = create_app()

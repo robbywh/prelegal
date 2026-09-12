@@ -16,6 +16,6 @@ if ($existing) {
 }
 
 docker build -t $ImageName .
-docker run -d --name $ContainerName -p 8000:8000 --env-file .env $ImageName
+docker run -d --name $ContainerName -p 127.0.0.1:8000:8000 --env-file .env $ImageName
 
 Write-Host "Prelegal is running at http://localhost:8000"

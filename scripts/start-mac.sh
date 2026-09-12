@@ -15,6 +15,6 @@ if docker ps -a --format '{{.Names}}' | grep -qx "${CONTAINER_NAME}"; then
 fi
 
 docker build -t "${IMAGE_NAME}" .
-docker run -d --name "${CONTAINER_NAME}" -p 8000:8000 --env-file .env "${IMAGE_NAME}"
+docker run -d --name "${CONTAINER_NAME}" -p 127.0.0.1:8000:8000 --env-file .env "${IMAGE_NAME}"
 
 echo "Prelegal is running at http://localhost:8000"

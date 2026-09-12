@@ -10,7 +10,7 @@ from app.main import create_app
 @pytest.fixture()
 def client(tmp_path: Path) -> TestClient:
     settings = Settings(
-        jwt_secret_key="test-secret-key-for-tests-only",
+        jwt_secret_key="test-secret-key-for-tests-only-01234567",
         database_path=tmp_path / "test.db",
         static_dir=tmp_path / "nonexistent-static",
     )
